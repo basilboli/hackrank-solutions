@@ -7,9 +7,12 @@ def parse(str):
 
 def convert(hour, ampm):
 	if (ampm=="PM"):
-		return int(hour) + 12
-	else:		
-		return hour	
+		if not hour == "12":
+			hour = int(hour) + 12
+	elif (ampm=="AM"):
+		if hour == "12":
+			hour = "00"	
+	return hour	
 
 def solution(time):	
 	ampm=time[-2:]
